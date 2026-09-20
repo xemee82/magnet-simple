@@ -20,7 +20,7 @@
 
 Most window managers do way more than you need. MagnetSimple does exactly three things: snap left, snap right, and maximize — then gets out of your way.
 
-**中文简介**：MagnetSimple 是一款极简原生 macOS 窗口管理菜单栏工具。仅提供左右分屏（支持 1/2、1/3、2/3 循环切换）与全屏切换三个核心操作，约 600 行纯 Swift 代码，零外部依赖，免费开源。
+**中文简介**：MagnetSimple 是一款极简原生 macOS 窗口管理菜单栏工具（**仅支持 macOS 系统，不支持 Windows / Linux**）。仅提供左右分屏（支持 1/2、1/3、2/3 循环切换）与全屏切换三个核心操作，约 600 行纯 Swift 代码，零外部依赖，免费开源。
 
 ## How it compares
 
@@ -41,7 +41,7 @@ Most window managers do way more than you need. MagnetSimple does exactly three 
 | `⌃⌥→` | `⌃→` | Snap right — cycles through ½ → ⅓ → ⅔ |
 | `⌃⌥↩` | `⌃↩` | Toggle maximize / restore |
 
-The `Control`-only alternatives exist for keyboards that lack an Option key.
+The `Control`-only alternatives exist for external keyboards (such as PC/Windows layout keyboards connected to a Mac) that lack an Option key.
 
 ## What it does
 
@@ -55,8 +55,8 @@ The `Control`-only alternatives exist for keyboards that lack an Option key.
 
 ## Requirements
 
-- macOS 13.0 (Ventura) or later
-- Apple Silicon or Intel
+- **macOS only** — macOS 13.0 (Ventura) or later. **Windows and Linux are not supported.**
+- Universal Binary — runs natively on both Apple Silicon (M-series) and Intel Macs.
 
 ## Install
 
@@ -144,6 +144,12 @@ Make sure `MagnetSimple.app` is in `/Applications`. The `SMAppService` API requi
 <summary>How does this compare to macOS 15 Sequoia's built-in window tiling?</summary>
 
 macOS 15 introduced basic window tiling, but it only splits into fixed halves and quarters. It does not support cycling through ½ → ⅓ → ⅔ widths, does not restore window sizes when toggling maximize, and is only available on macOS 15+. MagnetSimple supports macOS 13+ and provides fluent multi-width cycle snapping with per-window memory.
+</details>
+
+<details>
+<summary>Does MagnetSimple support Windows or Linux?</summary>
+
+No. MagnetSimple is built exclusively on macOS system APIs (AppKit, Carbon event hotkeys, and macOS Accessibility). It does not work on Windows or Linux, and there are no plans for cross-platform support.
 </details>
 
 ## Contributing

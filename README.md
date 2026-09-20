@@ -24,14 +24,14 @@ Most window managers do way more than you need. MagnetSimple does exactly three 
 
 ## How it compares
 
-| | MagnetSimple | Magnet | Rectangle |
-|:---|:---:|:---:|:---:|
-| Left/right snap with ½ ⅓ ⅔ cycle | Yes | Yes | Yes |
-| Price | Free | $9.99 | Free |
-| External dependencies | None | — | ShortcutRecorder, etc. |
-| Source lines | ~600 | Closed source | ~15,000 |
-| Memory footprint | ~5 MB | ~20 MB | ~25 MB |
-| Dock icon | Hidden | Hidden | Optional |
+| | MagnetSimple | Magnet | Rectangle | Moom |
+|:---|:---:|:---:|:---:|:---:|
+| Left/right snap with ½ ⅓ ⅔ cycle | Yes | Yes | Yes | No (grid-based) |
+| Price | Free | $4.99 | Free | $15 |
+| External dependencies | None | — | ShortcutRecorder, etc. | — |
+| Source lines | ~600 | Closed source | ~15,000 | Closed source |
+| Memory footprint | ~5 MB | ~20 MB | ~25 MB | ~30 MB |
+| Dock icon | Hidden | Hidden | Optional | Hidden |
 
 ## Shortcuts
 
@@ -140,6 +140,12 @@ Some apps set a minimum window width that's wider than ⅓ of the screen (Outloo
 Make sure `MagnetSimple.app` is in `/Applications`. The `SMAppService` API requires a stable path.
 </details>
 
+<details>
+<summary>How does this compare to macOS 15 Sequoia's built-in window tiling?</summary>
+
+macOS 15 introduced basic window tiling, but it only splits into fixed halves and quarters. It does not support cycling through ½ → ⅓ → ⅔ widths, does not restore window sizes when toggling maximize, and is only available on macOS 15+. MagnetSimple supports macOS 13+ and provides fluent multi-width cycle snapping with per-window memory.
+</details>
+
 ## Contributing
 
 Issues and pull requests welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
@@ -152,4 +158,4 @@ MagnetSimple is intentionally minimal. Feature requests that align with the "do 
 
 ## Acknowledgments
 
-Inspired by [Magnet](https://magnet.crowdcafe.com/), [Rectangle](https://rectangleapp.com/), and [Spectacle](https://www.spectacleapp.com/).
+Inspired by [Magnet](https://magnet.crowdcafe.com/), [Rectangle](https://rectangleapp.com/), [Moom](https://manytricks.com/moom/), and [Spectacle](https://www.spectacleapp.com/).

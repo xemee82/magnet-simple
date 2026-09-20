@@ -1,0 +1,155 @@
+# MagnetSimple
+
+<p align="center">
+  <img src="Resources/AppIcon_1024.png" width="128" height="128" alt="MagnetSimple">
+</p>
+
+<p align="center">
+  A minimal, native macOS window manager.<br>
+  3 hotkeys. ~600 lines of Swift. Zero dependencies.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/platform-macOS%2013%2B-blue?logo=apple" alt="Platform">
+  <img src="https://img.shields.io/badge/architecture-Universal%20Binary-orange" alt="Architecture">
+  <img src="https://img.shields.io/badge/Swift-F05138?logo=swift&logoColor=white" alt="Swift">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+</p>
+
+---
+
+Most window managers do way more than you need. MagnetSimple does exactly three things: snap left, snap right, and maximize — then gets out of your way.
+
+**中文简介**：MagnetSimple 是一款极简原生 macOS 窗口管理菜单栏工具。仅提供左右分屏（支持 1/2、1/3、2/3 循环切换）与全屏切换三个核心操作，约 600 行纯 Swift 代码，零外部依赖，免费开源。
+
+## How it compares
+
+| | MagnetSimple | Magnet | Rectangle |
+|:---|:---:|:---:|:---:|
+| Left/right snap with ½ ⅓ ⅔ cycle | Yes | Yes | Yes |
+| Price | Free | $9.99 | Free |
+| External dependencies | None | — | ShortcutRecorder, etc. |
+| Source lines | ~600 | Closed source | ~15,000 |
+| Memory footprint | ~5 MB | ~20 MB | ~25 MB |
+| Dock icon | Hidden | Hidden | Optional |
+
+## Shortcuts
+
+| Keys | Alternative | Action |
+|:---|:---|:---|
+| `⌃⌥←` | `⌃←` | Snap left — cycles through ½ → ⅓ → ⅔ |
+| `⌃⌥→` | `⌃→` | Snap right — cycles through ½ → ⅓ → ⅔ |
+| `⌃⌥↩` | `⌃↩` | Toggle maximize / restore |
+
+The `Control`-only alternatives exist for keyboards that lack an Option key.
+
+## What it does
+
+- Lives in the menu bar. No Dock icon, no clutter in `⌘Tab`.
+- Keeps pressing the same shortcut to cycle through ½, ⅓, and ⅔ widths.
+- Remembers each window's original position before maximizing — press again to restore.
+- Each window tracks its own snap state independently.
+- Works across multiple displays, accounting for the menu bar and Dock.
+- Launch at login via the menu bar toggle (uses `SMAppService`).
+- Grants accessibility permission at runtime — no restart needed after authorization.
+
+## Requirements
+
+- macOS 13.0 (Ventura) or later
+- Apple Silicon or Intel
+
+## Install
+
+### From Releases
+
+1. Download `MagnetSimple.zip` from [Releases](../../releases)
+2. Unzip and move `MagnetSimple.app` to `/Applications`
+3. Double-click to launch
+
+> **First launch note:** Since MagnetSimple is not notarized with an Apple Developer certificate, macOS Gatekeeper will block the first launch. Click **Done** to dismiss, then go to **System Settings → Privacy & Security**, scroll down, and click **Open Anyway**. This only needs to be done once.
+>
+> Alternatively, clear the quarantine flag from Terminal:
+> ```bash
+> xattr -cr /Applications/MagnetSimple.app
+> ```
+
+### From source
+
+```bash
+git clone https://github.com/xemee82/magnet-simple.git
+cd magnet-simple
+./build.sh
+open build/MagnetSimple.app
+```
+
+The build script compiles arm64 and x86_64 separately, merges them with `lipo`, signs with an ad-hoc signature, and produces both `MagnetSimple.app` and `MagnetSimple.zip` under `build/`.
+
+## First run
+
+1. A horseshoe magnet icon appears in the menu bar
+2. macOS prompts for Accessibility permission — grant it in **System Settings → Privacy & Security → Accessibility**
+3. Hotkeys activate within 2 seconds, no restart needed
+
+## Project layout
+
+```
+Sources/MagnetSimple/
+  main.swift              Entry point
+  AppDelegate.swift       Menu bar UI, permission polling, launch-at-login
+  HotKeyManager.swift     Carbon global hotkey registration
+  WindowManager.swift     AX API window positioning and snap-cycle state machine
+
+Resources/
+  Info.plist              App bundle configuration
+  AppIcon.icns            Application icon
+  MenuBarIcon.png         Menu bar icon (1x)
+  MenuBarIcon@2x.png      Menu bar icon (2x Retina)
+
+build.sh                  One-command build & package script
+```
+
+## Under the hood
+
+Built entirely on macOS system frameworks — AppKit, Carbon, ApplicationServices, and ServiceManagement. No SwiftUI, no third-party packages, no Xcode project file.
+
+Key implementation details:
+
+- **Carbon hotkeys** via `RegisterEventHotKey` for true system-wide shortcuts that work regardless of which app is focused.
+- **AXUIElement API** for reading and writing window frames. Coordinates are translated between the Accessibility coordinate system (origin top-left) and Cocoa (origin bottom-left).
+- **Three-pass resize** — set size, then position, then size again — to work around system clamping that can cause partial resizes on windows near screen edges.
+- **Tolerance-based cycle detection** using `isApproximatelyEqual` with a 10px threshold, so the ½ → ⅓ → ⅔ cycle keeps working even when apps enforce a minimum window width (e.g., Outlook's calendar view can't shrink to exactly ⅓).
+- **Per-window state tracking** via `CFHash` so each window independently remembers its snap position and cycle state.
+
+## FAQ
+
+<details>
+<summary>Hotkeys don't work</summary>
+
+Check the menu bar icon — if it shows a warning, Accessibility permission hasn't been granted. Go to **System Settings → Privacy & Security → Accessibility** and make sure MagnetSimple is checked. If it was previously checked for an older build, remove it with the `-` button and re-add.
+</details>
+
+<details>
+<summary>Some windows won't snap to ⅓ width</summary>
+
+Some apps set a minimum window width that's wider than ⅓ of the screen (Outlook's calendar view is a common example). This is an app-level constraint, not a bug. The cycle logic has built-in tolerance to handle this gracefully — it'll still advance to the next state even if the window couldn't reach the exact target size.
+</details>
+
+<details>
+<summary>Launch at login doesn't persist after reboot</summary>
+
+Make sure `MagnetSimple.app` is in `/Applications`. The `SMAppService` API requires a stable path.
+</details>
+
+## Contributing
+
+Issues and pull requests welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+MagnetSimple is intentionally minimal. Feature requests that align with the "do three things well" philosophy are most likely to be accepted.
+
+## License
+
+[MIT](LICENSE)
+
+## Acknowledgments
+
+Inspired by [Magnet](https://magnet.crowdcafe.com/), [Rectangle](https://rectangleapp.com/), and [Spectacle](https://www.spectacleapp.com/).

@@ -5,8 +5,9 @@
 </p>
 
 <p align="center">
-  A minimal, native macOS window manager.<br>
-  3 hotkeys. ~600 lines of Swift. Zero dependencies.
+  <strong>A minimal, native macOS window manager.</strong><br>
+  3 hotkeys. ~600 lines of Swift. Zero dependencies.<br>
+  <sub>极简原生 macOS 窗口管理工具 · 3 个快捷键 · ~600 行 Swift · 零外部依赖</sub>
 </p>
 
 <p align="center">
@@ -20,7 +21,17 @@
 
 Most window managers do way more than you need. MagnetSimple does exactly three things: snap left, snap right, and maximize — then gets out of your way.
 
-**中文简介**：MagnetSimple 是一款极简原生 macOS 窗口管理菜单栏工具（**仅支持 macOS 系统，不支持 Windows / Linux**）。仅提供左右分屏（支持 1/2、1/3、2/3 循环切换）与全屏切换三个核心操作，约 600 行纯 Swift 代码，零外部依赖，免费开源。
+Built natively for macOS with pure Swift and system APIs (AppKit, Carbon, Accessibility). It lives quietly in your menu bar, takes ~600 lines of code, consumes ~5 MB of RAM, and requires zero external dependencies.
+
+*(Note: Designed exclusively for macOS 13+. Windows and Linux are not supported.)*
+
+---
+
+大多数窗口管理工具的功能都远超日常所需。MagnetSimple 只专注做好三件事：左半屏、右半屏、以及全屏与还原 —— 随后彻底淡出视野，不打扰你的工作流。
+
+基于纯 Swift 与系统底层 API（AppKit、Carbon、Accessibility）打造。常驻菜单栏不占 Dock 栏，源码仅约 600 行，运行内存仅约 5 MB，完全零外部依赖且开源免费。
+
+*（注：本工具为 macOS 13+ 原生专属，不支持 Windows 或 Linux 操作系统。）*
 
 ## How it compares
 

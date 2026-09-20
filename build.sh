@@ -56,6 +56,7 @@ cp Resources/AppIcon.icns "${RESOURCES}/AppIcon.icns"
 cp Resources/MenuBarIcon.png "${RESOURCES}/MenuBarIcon.png"
 cp Resources/MenuBarIcon@2x.png "${RESOURCES}/MenuBarIcon@2x.png"
 cp Resources/使用说明.md "${BUILD_DIR}/使用说明.md"
+cp Resources/shortcuts_demo.png "${BUILD_DIR}/shortcuts_demo.png"
 
 echo "🧹 清除扩展属性与隔离标记..."
 xattr -cr "${APP_BUNDLE}" || true

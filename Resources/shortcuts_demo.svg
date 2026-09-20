@@ -1,0 +1,325 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 760" width="1060" height="760">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .card { fill: #161b22; stroke: #30363d; stroke-width: 1.5; rx: 12px; }
+      .text-title { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif; font-weight: 700; font-size: 20px; fill: #f0f6fc; }
+      .text-subtitle { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; font-size: 13px; fill: #8b949e; }
+      .text-card-title { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; font-weight: 600; font-size: 16px; fill: #58a6ff; }
+      .text-card-desc { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; font-size: 12px; fill: #8b949e; }
+      .text-step { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; font-weight: 600; font-size: 11px; fill: #c9d1d9; }
+      .text-window { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif; font-weight: 700; font-size: 14px; fill: #ffffff; }
+      .text-window-sub { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; font-weight: 500; font-size: 10px; fill: rgba(255,255,255,0.75); }
+      .text-key { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; font-weight: 600; font-size: 11px; fill: #f0f6fc; }
+      .text-key-alt { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; font-size: 11px; fill: #8b949e; }
+      .monitor-bezel { fill: #21262d; stroke: #484f58; stroke-width: 1.5; rx: 8px; }
+      .monitor-screen { fill: #0b0e14; rx: 4px; }
+      .monitor-bar { fill: #1c2128; }
+      .window-active { fill: #1f6feb; stroke: #58a6ff; stroke-width: 1.5; rx: 3px; }
+      .window-purple { fill: #8957e5; stroke: #a371f7; stroke-width: 1.5; rx: 3px; }
+      .keycap { fill: #21262d; stroke: #484f58; stroke-width: 1; rx: 6px; }
+      .keycap-accent { fill: #1f6feb; stroke: #58a6ff; stroke-width: 1; rx: 6px; }
+      .keycap-purple { fill: #8957e5; stroke: #a371f7; stroke-width: 1; rx: 6px; }
+      .arrow { stroke: #8b949e; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .arrow-loop { stroke: #58a6ff; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; stroke-linecap: round; }
+      .arrowhead { fill: #8b949e; }
+      .arrowhead-loop { fill: #58a6ff; }
+      .badge-tag { fill: #21262d; stroke: #30363d; stroke-width: 1; rx: 4px; }
+    </style>
+
+    <marker id="arrow-head" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" class="arrowhead" />
+    </marker>
+    <marker id="arrow-head-loop" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" class="arrowhead-loop" />
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1060" height="760" rx="16" class="bg" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- Top Header Banner -->
+  <g transform="translate(40, 24)">
+    <!-- Horseshoe Magnet Icon in Header -->
+    <path d="M 12 5 L 12 18 C 12 24 16 28 22 28 C 28 28 32 24 32 18 L 32 5 L 26 5 L 26 17 C 26 19.5 24 21.5 22 21.5 C 20 21.5 18 19.5 18 17 L 18 5 Z" fill="#58a6ff"/>
+    <rect x="12" y="5" width="6" height="5" fill="#f85149" rx="1"/>
+    <rect x="26" y="5" width="6" height="5" fill="#1f6feb" rx="1"/>
+
+    <text x="44" y="21" class="text-title">MagnetSimple · Window Cycling &amp; Shortcuts</text>
+    <text x="44" y="38" class="text-subtitle">Continuous key presses cycle through widths (½ → ⅓ → ⅔) · Maximize remembers original frame</text>
+  </g>
+
+  <!-- ================================================================= -->
+  <!-- CARD 1: LEFT SNAP CYCLE (Y: 76 to 284, H: 208) -->
+  <!-- ================================================================= -->
+  <rect x="40" y="76" width="980" height="208" class="card"/>
+
+  <!-- Left Sidebar Info -->
+  <g transform="translate(64, 100)">
+    <text x="0" y="16" class="text-card-title">Left Snap Cycle</text>
+    <text x="0" y="34" class="text-card-desc">Press shortcut repeatedly to cycle</text>
+
+    <!-- Keycaps -->
+    <g transform="translate(0, 52)">
+      <rect x="0" y="0" width="46" height="30" class="keycap"/>
+      <text x="23" y="19" text-anchor="middle" class="text-key">Ctrl</text>
+
+      <rect x="52" y="0" width="46" height="30" class="keycap"/>
+      <text x="75" y="19" text-anchor="middle" class="text-key">Opt</text>
+
+      <rect x="104" y="0" width="50" height="30" class="keycap-accent"/>
+      <text x="129" y="19" text-anchor="middle" class="text-key">Left</text>
+    </g>
+
+    <!-- Alternative key -->
+    <g transform="translate(0, 94)">
+      <text x="0" y="12" class="text-key-alt">or single Ctrl + Left (PC keyboards)</text>
+    </g>
+
+    <!-- Cycle badge -->
+    <g transform="translate(0, 118)">
+      <rect x="0" y="0" width="168" height="24" class="badge-tag"/>
+      <text x="12" y="16" font-family="sans-serif" font-size="11" fill="#79c0ff">Cycle: ½ → ⅓ → ⅔ → ½</text>
+    </g>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="265" y1="92" x2="265" y2="268" stroke="#21262d" stroke-width="1.5"/>
+
+  <!-- Monitors Area for Left Snap -->
+  <!-- Screen 1: Left 1/2 -->
+  <g transform="translate(300, 106)">
+    <text x="75" y="-10" text-anchor="middle" class="text-step">1st Press: ½ Left</text>
+    <rect x="0" y="0" width="150" height="100" class="monitor-bezel"/>
+    <rect x="4" y="4" width="142" height="92" class="monitor-screen"/>
+    <rect x="4" y="4" width="142" height="7" class="monitor-bar"/>
+    <circle cx="9" cy="7.5" r="1.5" fill="#ff5f56"/>
+    <circle cx="14" cy="7.5" r="1.5" fill="#ffbd2e"/>
+    <circle cx="19" cy="7.5" r="1.5" fill="#27c93f"/>
+    <!-- Active Window (Left 1/2: width 70) -->
+    <rect x="5" y="12" width="70" height="83" class="window-active"/>
+    <text x="40" y="52" text-anchor="middle" class="text-window">½</text>
+    <text x="40" y="66" text-anchor="middle" class="text-window-sub">50% width</text>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <path d="M 465 156 L 505 156" class="arrow" marker-end="url(#arrow-head)"/>
+  <text x="485" y="146" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#8b949e">press</text>
+
+  <!-- Screen 2: Left 1/3 -->
+  <g transform="translate(520, 106)">
+    <text x="75" y="-10" text-anchor="middle" class="text-step">2nd Press: ⅓ Left</text>
+    <rect x="0" y="0" width="150" height="100" class="monitor-bezel"/>
+    <rect x="4" y="4" width="142" height="92" class="monitor-screen"/>
+    <rect x="4" y="4" width="142" height="7" class="monitor-bar"/>
+    <circle cx="9" cy="7.5" r="1.5" fill="#ff5f56"/>
+    <circle cx="14" cy="7.5" r="1.5" fill="#ffbd2e"/>
+    <circle cx="19" cy="7.5" r="1.5" fill="#27c93f"/>
+    <!-- Active Window (Left 1/3: width 47) -->
+    <rect x="5" y="12" width="47" height="83" class="window-active"/>
+    <text x="28" y="52" text-anchor="middle" class="text-window">⅓</text>
+    <text x="28" y="66" text-anchor="middle" class="text-window-sub">33%</text>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <path d="M 685 156 L 725 156" class="arrow" marker-end="url(#arrow-head)"/>
+  <text x="705" y="146" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#8b949e">press</text>
+
+  <!-- Screen 3: Left 2/3 -->
+  <g transform="translate(740, 106)">
+    <text x="75" y="-10" text-anchor="middle" class="text-step">3rd Press: ⅔ Left</text>
+    <rect x="0" y="0" width="150" height="100" class="monitor-bezel"/>
+    <rect x="4" y="4" width="142" height="92" class="monitor-screen"/>
+    <rect x="4" y="4" width="142" height="7" class="monitor-bar"/>
+    <circle cx="9" cy="7.5" r="1.5" fill="#ff5f56"/>
+    <circle cx="14" cy="7.5" r="1.5" fill="#ffbd2e"/>
+    <circle cx="19" cy="7.5" r="1.5" fill="#27c93f"/>
+    <!-- Active Window (Left 2/3: width 94) -->
+    <rect x="5" y="12" width="94" height="83" class="window-active"/>
+    <text x="52" y="52" text-anchor="middle" class="text-window">⅔</text>
+    <text x="52" y="66" text-anchor="middle" class="text-window-sub">67% width</text>
+  </g>
+
+  <!-- Return Loop Arrow -->
+  <path d="M 815 214 C 815 242, 375 242, 375 218" class="arrow-loop" marker-end="url(#arrow-head-loop)"/>
+  <text x="595" y="246" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#58a6ff">4th Press: loops back to ½ Left</text>
+
+
+  <!-- ================================================================= -->
+  <!-- CARD 2: RIGHT SNAP CYCLE (Y: 298 to 506, H: 208) -->
+  <!-- ================================================================= -->
+  <rect x="40" y="298" width="980" height="208" class="card"/>
+
+  <!-- Left Sidebar Info -->
+  <g transform="translate(64, 322)">
+    <text x="0" y="16" class="text-card-title">Right Snap Cycle</text>
+    <text x="0" y="34" class="text-card-desc">Press shortcut repeatedly to cycle</text>
+
+    <!-- Keycaps -->
+    <g transform="translate(0, 52)">
+      <rect x="0" y="0" width="46" height="30" class="keycap"/>
+      <text x="23" y="19" text-anchor="middle" class="text-key">Ctrl</text>
+
+      <rect x="52" y="0" width="46" height="30" class="keycap"/>
+      <text x="75" y="19" text-anchor="middle" class="text-key">Opt</text>
+
+      <rect x="104" y="0" width="50" height="30" class="keycap-accent"/>
+      <text x="129" y="19" text-anchor="middle" class="text-key">Right</text>
+    </g>
+
+    <!-- Alternative key -->
+    <g transform="translate(0, 94)">
+      <text x="0" y="12" class="text-key-alt">or single Ctrl + Right (PC keyboards)</text>
+    </g>
+
+    <!-- Cycle badge -->
+    <g transform="translate(0, 118)">
+      <rect x="0" y="0" width="168" height="24" class="badge-tag"/>
+      <text x="12" y="16" font-family="sans-serif" font-size="11" fill="#79c0ff">Cycle: ½ → ⅓ → ⅔ → ½</text>
+    </g>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="265" y1="314" x2="265" y2="490" stroke="#21262d" stroke-width="1.5"/>
+
+  <!-- Monitors Area for Right Snap -->
+  <!-- Screen 1: Right 1/2 -->
+  <g transform="translate(300, 328)">
+    <text x="75" y="-10" text-anchor="middle" class="text-step">1st Press: ½ Right</text>
+    <rect x="0" y="0" width="150" height="100" class="monitor-bezel"/>
+    <rect x="4" y="4" width="142" height="92" class="monitor-screen"/>
+    <rect x="4" y="4" width="142" height="7" class="monitor-bar"/>
+    <circle cx="9" cy="7.5" r="1.5" fill="#ff5f56"/>
+    <circle cx="14" cy="7.5" r="1.5" fill="#ffbd2e"/>
+    <circle cx="19" cy="7.5" r="1.5" fill="#27c93f"/>
+    <!-- Active Window (Right 1/2: x=75, width=70) -->
+    <rect x="75" y="12" width="70" height="83" class="window-active"/>
+    <text x="110" y="52" text-anchor="middle" class="text-window">½</text>
+    <text x="110" y="66" text-anchor="middle" class="text-window-sub">50% width</text>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <path d="M 465 378 L 505 378" class="arrow" marker-end="url(#arrow-head)"/>
+  <text x="485" y="368" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#8b949e">press</text>
+
+  <!-- Screen 2: Right 1/3 -->
+  <g transform="translate(520, 328)">
+    <text x="75" y="-10" text-anchor="middle" class="text-step">2nd Press: ⅓ Right</text>
+    <rect x="0" y="0" width="150" height="100" class="monitor-bezel"/>
+    <rect x="4" y="4" width="142" height="92" class="monitor-screen"/>
+    <rect x="4" y="4" width="142" height="7" class="monitor-bar"/>
+    <circle cx="9" cy="7.5" r="1.5" fill="#ff5f56"/>
+    <circle cx="14" cy="7.5" r="1.5" fill="#ffbd2e"/>
+    <circle cx="19" cy="7.5" r="1.5" fill="#27c93f"/>
+    <!-- Active Window (Right 1/3: x=98, width=47) -->
+    <rect x="98" y="12" width="47" height="83" class="window-active"/>
+    <text x="121" y="52" text-anchor="middle" class="text-window">⅓</text>
+    <text x="121" y="66" text-anchor="middle" class="text-window-sub">33%</text>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <path d="M 685 378 L 725 378" class="arrow" marker-end="url(#arrow-head)"/>
+  <text x="705" y="368" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#8b949e">press</text>
+
+  <!-- Screen 3: Right 2/3 -->
+  <g transform="translate(740, 328)">
+    <text x="75" y="-10" text-anchor="middle" class="text-step">3rd Press: ⅔ Right</text>
+    <rect x="0" y="0" width="150" height="100" class="monitor-bezel"/>
+    <rect x="4" y="4" width="142" height="92" class="monitor-screen"/>
+    <rect x="4" y="4" width="142" height="7" class="monitor-bar"/>
+    <circle cx="9" cy="7.5" r="1.5" fill="#ff5f56"/>
+    <circle cx="14" cy="7.5" r="1.5" fill="#ffbd2e"/>
+    <circle cx="19" cy="7.5" r="1.5" fill="#27c93f"/>
+    <!-- Active Window (Right 2/3: x=51, width=94) -->
+    <rect x="51" y="12" width="94" height="83" class="window-active"/>
+    <text x="98" y="52" text-anchor="middle" class="text-window">⅔</text>
+    <text x="98" y="66" text-anchor="middle" class="text-window-sub">67% width</text>
+  </g>
+
+  <!-- Return Loop Arrow -->
+  <path d="M 815 436 C 815 464, 375 464, 375 440" class="arrow-loop" marker-end="url(#arrow-head-loop)"/>
+  <text x="595" y="468" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#58a6ff">4th Press: loops back to ½ Right</text>
+
+
+  <!-- ================================================================= -->
+  <!-- CARD 3: MAXIMIZE & RESTORE (Y: 520 to 716, H: 196) -->
+  <!-- ================================================================= -->
+  <rect x="40" y="520" width="980" height="196" class="card"/>
+
+  <!-- Left Sidebar Info -->
+  <g transform="translate(64, 542)">
+    <text x="0" y="16" class="text-card-title" fill="#a371f7">Maximize &amp; Restore</text>
+    <text x="0" y="34" class="text-card-desc">Press again to restore original size</text>
+
+    <!-- Keycaps -->
+    <g transform="translate(0, 52)">
+      <rect x="0" y="0" width="46" height="30" class="keycap"/>
+      <text x="23" y="19" text-anchor="middle" class="text-key">Ctrl</text>
+
+      <rect x="52" y="0" width="46" height="30" class="keycap"/>
+      <text x="75" y="19" text-anchor="middle" class="text-key">Opt</text>
+
+      <rect x="104" y="0" width="56" height="30" class="keycap-purple"/>
+      <text x="132" y="19" text-anchor="middle" class="text-key">Enter</text>
+    </g>
+
+    <!-- Alternative key -->
+    <g transform="translate(0, 94)">
+      <text x="0" y="12" class="text-key-alt">or single Ctrl + Enter (PC keyboards)</text>
+    </g>
+
+    <!-- Memory badge -->
+    <g transform="translate(0, 116)">
+      <rect x="0" y="0" width="180" height="24" class="badge-tag"/>
+      <text x="10" y="16" font-family="sans-serif" font-size="11" fill="#d2a8ff">Dual memory: Full ⇄ Original</text>
+    </g>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="265" y1="534" x2="265" y2="702" stroke="#21262d" stroke-width="1.5"/>
+
+  <!-- Monitors Area for Maximize / Restore -->
+  <!-- Screen 1: Original / Floating Window -->
+  <g transform="translate(360, 550)">
+    <text x="85" y="-10" text-anchor="middle" class="text-step">Original Window</text>
+    <rect x="0" y="0" width="170" height="110" class="monitor-bezel"/>
+    <rect x="4" y="4" width="162" height="102" class="monitor-screen"/>
+    <rect x="4" y="4" width="162" height="7" class="monitor-bar"/>
+    <circle cx="9" cy="7.5" r="1.5" fill="#ff5f56"/>
+    <circle cx="14" cy="7.5" r="1.5" fill="#ffbd2e"/>
+    <circle cx="19" cy="7.5" r="1.5" fill="#27c93f"/>
+    <!-- Centered arbitrary floating window -->
+    <rect x="35" y="24" width="98" height="68" fill="#30363d" stroke="#8b949e" stroke-width="1.5" rx="3"/>
+    <text x="84" y="56" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="600" fill="#c9d1d9">Custom Size</text>
+    <text x="84" y="72" text-anchor="middle" class="text-window-sub">Any position</text>
+  </g>
+
+  <!-- Bidirectional Arrow -->
+  <g transform="translate(565, 595)">
+    <!-- Top arrow (forward: Maximize) -->
+    <path d="M 0 5 L 65 5" class="arrow" stroke="#a371f7" stroke-width="2" marker-end="url(#arrow-head-loop)"/>
+    <text x="32" y="-4" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#a371f7">Maximize →</text>
+
+    <!-- Bottom arrow (backward: Restore) -->
+    <path d="M 65 25 L 0 25" class="arrow" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow-head)"/>
+    <text x="32" y="42" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#3fb950">← Restore</text>
+  </g>
+
+  <!-- Screen 2: Maximized Window -->
+  <g transform="translate(670, 550)">
+    <text x="85" y="-10" text-anchor="middle" class="text-step">Maximized Full Screen</text>
+    <rect x="0" y="0" width="170" height="110" class="monitor-bezel"/>
+    <rect x="4" y="4" width="162" height="102" class="monitor-screen"/>
+    <rect x="4" y="4" width="162" height="7" class="monitor-bar"/>
+    <circle cx="9" cy="7.5" r="1.5" fill="#ff5f56"/>
+    <circle cx="14" cy="7.5" r="1.5" fill="#ffbd2e"/>
+    <circle cx="19" cy="7.5" r="1.5" fill="#27c93f"/>
+    <!-- 100% Maximized window (excluding menubar) -->
+    <rect x="5" y="12" width="160" height="93" class="window-purple"/>
+    <text x="85" y="56" text-anchor="middle" class="text-window">100%</text>
+    <text x="85" y="72" text-anchor="middle" class="text-window-sub">Full usable area</text>
+  </g>
+
+  <!-- Footer Info -->
+  <text x="530" y="742" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#484f58">MagnetSimple is exclusively designed for macOS 13+ · Zero dependencies · Universal Binary</text>
+</svg>

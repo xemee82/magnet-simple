@@ -35,6 +35,10 @@ Most window managers do way more than you need. MagnetSimple does exactly three 
 
 ## Shortcuts
 
+<p align="center">
+  <img src="Resources/shortcuts_demo.png" width="100%" alt="MagnetSimple Shortcuts & Window Cycling Guide">
+</p>
+
 | Keys | Alternative | Action |
 |:---|:---|:---|
 | `⌃⌥←` | `⌃←` | Snap left — cycles through ½ → ⅓ → ⅔ |

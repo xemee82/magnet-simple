@@ -5,6 +5,7 @@ import ServiceManagement
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private var statusItem: NSStatusItem!
     private var authStatusMenuItem: NSMenuItem?
+    private var launchAtLoginMenuItem: NSMenuItem?
     private var authTimer: Timer?
     private let hotKeyManager = HotKeyManager()
     private let windowManager = WindowManager()
@@ -62,7 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                 self.authStatusMenuItem?.isHidden = true
             } else {
                 self.authStatusMenuItem?.isHidden = false
-                self.authStatusMenuItem?.title = "⚠️ 等待辅助功能授权（点击查看）"
+                self.authStatusMenuItem?.title = "⚠️ Accessibility Permission Required (Click to Open)"
             }
         }
     }
@@ -108,7 +109,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.addItem(titleItem)
 
         let authItem = NSMenuItem(
-            title: "⚠️ 等待辅助功能授权…",
+            title: "⚠️ Accessibility Permission Required…",
             action: #selector(openAccessibilitySettings),
             keyEquivalent: ""
         )
@@ -119,32 +120,33 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
         menu.addItem(NSMenuItem.separator())
 
-        let leftItem = NSMenuItem(title: "⌃⌥← 左半屏 (循环 1/3, 2/3)", action: #selector(menuSnapLeft), keyEquivalent: "")
+        let leftItem = NSMenuItem(title: "⌃⌥← Left Snap (Cycle ½, ⅓, ⅔)", action: #selector(menuSnapLeft), keyEquivalent: "")
         leftItem.target = self
         menu.addItem(leftItem)
 
-        let rightItem = NSMenuItem(title: "⌃⌥→ 右半屏 (循环 1/3, 2/3)", action: #selector(menuSnapRight), keyEquivalent: "")
+        let rightItem = NSMenuItem(title: "⌃⌥→ Right Snap (Cycle ½, ⅓, ⅔)", action: #selector(menuSnapRight), keyEquivalent: "")
         rightItem.target = self
         menu.addItem(rightItem)
 
-        let maxItem = NSMenuItem(title: "⌃⌥↩ 全屏切换", action: #selector(menuToggleMaximize), keyEquivalent: "")
+        let maxItem = NSMenuItem(title: "⌃⌥↩ Toggle Maximize", action: #selector(menuToggleMaximize), keyEquivalent: "")
         maxItem.target = self
         menu.addItem(maxItem)
 
         menu.addItem(NSMenuItem.separator())
 
         let launchItem = NSMenuItem(
-            title: "开机自启动",
+            title: "Launch at Login",
             action: #selector(toggleLaunchAtLogin(_:)),
             keyEquivalent: ""
         )
         launchItem.target = self
         menu.addItem(launchItem)
+        self.launchAtLoginMenuItem = launchItem
 
         menu.addItem(NSMenuItem.separator())
 
         menu.addItem(NSMenuItem(
-            title: "退出 MagnetSimple",
+            title: "Quit MagnetSimple",
             action: #selector(NSApplication.terminate(_:)),
             keyEquivalent: "q"
         ))
@@ -189,9 +191,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         if !isAuthorized && AXIsProcessTrusted() {
             handleAuthorizationSuccess()
         }
-        if let launchItem = menu.item(withTitle: "开机自启动") {
-            launchItem.state = (SMAppService.mainApp.status == .enabled) ? .on : .off
-        }
+        launchAtLoginMenuItem?.state = (SMAppService.mainApp.status == .enabled) ? .on : .off
     }
 
     // MARK: - 矢量马蹄形磁铁图标生成
